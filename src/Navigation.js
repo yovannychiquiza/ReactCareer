@@ -13,10 +13,10 @@ export class Navigation extends Component{
                 <NavLink className="d-inline p-2 bg-dark text-white" to="/">
                     Home
                 </NavLink>
-                <NavLink className="d-inline p-2 bg-dark text-white" to="/department">
+                <NavLink className="d-inline p-2 bg-dark text-white" to="/department/department">
                     Department
                 </NavLink>
-                <NavLink className="d-inline p-2 bg-dark text-white" to="/employee">
+                <NavLink className="d-inline p-2 bg-dark text-white" to="/employee/employee">
                     Employee
                 </NavLink>
                 <NavLink className="d-inline p-2 bg-dark text-white" to="/country/country">
