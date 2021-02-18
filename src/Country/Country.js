@@ -9,14 +9,14 @@ export class Country extends Component{
 
     constructor(props){
         super(props);
-        this.state={deps:[], addModalShow:false, editModalShow:false}
+        this.state={countrys:[], addModalShow:false, editModalShow:false}
     }
 
     refreshList(){
         fetch(process.env.REACT_APP_API_COUNTRY + 'countrycode')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({deps:data});
+            this.setState({countrys:data});
         });
     }
 
@@ -28,7 +28,7 @@ export class Country extends Component{
         this.refreshList();
     }
 
-    deleteDep(depid){
+    deleteDep(countryid){
         if(window.confirm('Are you sure?')){
             fetch(process.env.REACT_APP_API_COUNTRY + 'countrycode',{
                 method:'DELETE',
@@ -36,13 +36,13 @@ export class Country extends Component{
                     'Accept':'application/json',
                     'Content-Type':'application/json'},
                 body:JSON.stringify([{
-                    Code:depid
+                    Code:countryid
                 }])
             })
         }
     }
     render(){
-        const {deps, depid,depname}=this.state;
+        const {countrys, countryid,countryname}=this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return(
@@ -56,27 +56,27 @@ export class Country extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {deps.map(dep=>
-                            <tr key={dep.Code}>
-                                <td>{dep.Code}</td>
-                                <td>{dep.Name}</td>
+                        {countrys.map(country=>
+                            <tr key={country.Code}>
+                                <td>{country.Code}</td>
+                                <td>{country.Name}</td>
                                 <td>
 <ButtonToolbar>
     <Button className="mr-2" variant="info"
     onClick={()=>this.setState({editModalShow:true,
-        depid:dep.Code,depname:dep.Name})}>
+        countryid:country.Code,countryname:country.Name})}>
             Edit
         </Button>
 
         <Button className="mr-2" variant="danger"
-    onClick={()=>this.deleteDep(dep.Code)}>
+    onClick={()=>this.deleteDep(country.Code)}>
             Delete
         </Button>
 
         <EditDepModal show={this.state.editModalShow}
         onHide={editModalClose}
-        depid={depid}
-        depname={depname}/>
+        countryid={countryid}
+        countryname={countryname}/>
 </ButtonToolbar>
 
                                 </td>

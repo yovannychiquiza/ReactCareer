@@ -52,14 +52,14 @@ centered
                         <Form.Label>Code</Form.Label>
                         <Form.Control type="text" name="Code" required
                         disabled
-                        defaultValue={this.props.depid} 
+                        defaultValue={this.props.countryid} 
                         placeholder="Code"/>
                     </Form.Group>
 
                     <Form.Group controlId="Name">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" name="Name" required 
-                        defaultValue={this.props.depname}
+                        defaultValue={this.props.countryname}
                         placeholder="Name"/>
                     </Form.Group>
 
