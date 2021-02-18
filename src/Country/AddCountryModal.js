@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 
-export class AddDepModal extends Component{
+export class AddCountryModal extends Component{
     constructor(props){
         super(props);
         this.handleSubmit=this.handleSubmit.bind(this);

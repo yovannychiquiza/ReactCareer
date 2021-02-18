@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import {Table} from 'react-bootstrap';
 
 import {Button,ButtonToolbar} from 'react-bootstrap';
-import {AddDepModal} from './AddCountryModal';
-import {EditDepModal} from './EditCountryModal';
+import {AddCountryModal} from './AddCountryModal';
+import {EditCountryModal} from './EditCountryModal';
 
 export class Country extends Component{
 
@@ -28,7 +28,7 @@ export class Country extends Component{
         this.refreshList();
     }
 
-    deleteDep(countryid){
+    deleteCountry(countryid){
         if(window.confirm('Are you sure?')){
             fetch(process.env.REACT_APP_API_COUNTRY + 'countrycode',{
                 method:'DELETE',
@@ -69,11 +69,11 @@ export class Country extends Component{
         </Button>
 
         <Button className="mr-2" variant="danger"
-    onClick={()=>this.deleteDep(country.Code)}>
+    onClick={()=>this.deleteCountry(country.Code)}>
             Delete
         </Button>
 
-        <EditDepModal show={this.state.editModalShow}
+        <EditCountryModal show={this.state.editModalShow}
         onHide={editModalClose}
         countryid={countryid}
         countryname={countryname}/>
@@ -91,7 +91,7 @@ export class Country extends Component{
                     onClick={()=>this.setState({addModalShow:true})}>
                     Add Country</Button>
 
-                    <AddDepModal show={this.state.addModalShow}
+                    <AddCountryModal show={this.state.addModalShow}
                     onHide={addModalClose}/>
                 </ButtonToolbar>
             </div>
