@@ -4,7 +4,7 @@ import './App.css';
 import {Home} from './Home';
 import {Department} from './Department';
 import {Employee} from './Employee';
-import {Country} from './Country';
+import {Country} from './Country/Country';
 import {Navigation} from './Navigation';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
        <Route path='/' component={Home} exact/>
        <Route path='/department' component={Department}/>
        <Route path='/employee' component={Employee}/>
-       <Route path='/country' component={Country}/>
+       <Route path='/country/country' component={Country}/>
      </Switch>
     </div>
     </BrowserRouter>
